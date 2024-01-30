@@ -94,6 +94,7 @@ struct ChildObject {
 
 If there are numerous properties being called frequently from multiple locations then this may be a better options. The **ChildObject** loses the functionality of operating independently as an **@ObservableObject**, but your **ParentObject** will essentially run normally and you won't needed to add any extra code elsewhere.
 
+Using just a **Class** doesn't work either, it has to be a **Struct**
 
 
 
