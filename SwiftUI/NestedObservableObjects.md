@@ -93,3 +93,50 @@ struct ChildObject {
 ```
 
 If there are numerous properties being called frequently from multiple locations then this may be a better options. The **ChildObject** loses the functionality of operating independently as an **@ObservableObject**, but your **ParentObject** will essentially run normally and you won't needed to add any extra code elsewhere.
+
+
+
+
+
+
+## Non-Working Fix Ideas:
+
+```swift
+class ChildObject: ObservableObject {
+    
+    init(_ parentObject: ParentObject) {
+        self.parentObject = parentObject
+    }
+    
+    weak var parentObject: ParentObject?
+    
+    @Published var value: Int = 0 {
+        willSet {
+            objectWillChange.send()
+            parentObject?.objectWillChange.send()
+        }
+    }
+}
+```
+Can't use self before init 
+
+<br>
+
+```swift
+class ChildObject: ObservableObject {
+    
+    init(_ updateParent: () ) {
+        self.updateParent = updateParent
+    }
+    
+    var updateParent: ()
+    
+    @Published var value: Int = 0 {
+        willSet {
+            objectWillChange.send()
+            updateParent
+        }
+    }
+}
+```
+Same issue, can't use self before init. Also issues with using ```updateParent: () -> Void```
