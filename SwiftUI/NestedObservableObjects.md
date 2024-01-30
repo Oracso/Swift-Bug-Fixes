@@ -4,7 +4,7 @@
 
 An **@ObservableObject** in **SwiftUI** is supposed to publish changes to any properties marked with **@Published** to any **SwiftUI** view accessing the property, causing the view to reload and update.
 
-When using an @ObservableObject class within another @ObservableObject class (nesting them) this results in the child object publishing updates to the parent object, however the parent object does not publish those changes to the view or up the hierarchy.
+When using an **@ObservableObject** class within another **@ObservableObject** class (nesting them) this results in the **ChildObject** publishing updates to the **ParentObject**, however the **ParentObject** does not publish those changes to the view or up the hierarchy.
 
 ### Contents: 
 - [Fix 1](#fix-1)
