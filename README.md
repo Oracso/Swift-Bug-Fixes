@@ -1,5 +1,5 @@
-# Swift-Bug-Solutions
-A catalogue of common Swift bugs and my catalogue of solutions
+# Swift Bug Fixes
+A catalogue of common Swift bugs and my catalogue of fixes
 
 
 ### Overview:
@@ -15,7 +15,7 @@ I found it hard keeping track of all the bugs I found and my different fixes for
 
 ### Code Layout
 
-Full code examples will be given for the bug example whereas for brevity, solution examples will generally only give the code snippets required to highlight the changes.
+Full code examples will be given for the bug example whereas for brevity, fix examples will generally only give the code snippets required to highlight the changes.
 
 
 
