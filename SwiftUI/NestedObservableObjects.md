@@ -97,6 +97,53 @@ If there are numerous properties being called frequently from multiple locations
 Using just a **Class** doesn't work either, it has to be a **Struct**
 
 
+### Computed Property Issues:
+
+If attempting to access a computed property from the **ChildObject** i.e. via **@Binding** then you will get the following error ```Cannot assign to property: '<property name>' is a get-only property```.
+
+To resolve this you will need to embed the computed property logic inside a **getter** in order to add an empty **setter** after, this should resolve the error message. 
+
+```swift
+struct ChildObject {
+    var value: Int = 0
+    var computedValue: Int {
+        get {
+            value + 1
+        }
+        set { }
+    }
+}
+```
+
+Doing so will allow you to access the computed property as shown below.
+
+```swift
+struct ContentView: View {
+    @StateObject var parentObject = ParentObject(name: "Parent Object")
+    var body: some View {
+        VStack {
+            Text("Value: \(parentObject.childObject.value)")
+            
+            Button("Increase Value") {
+                parentObject.childObject.value += 1
+                print(parentObject.childObject.value)
+            }
+            
+            ChildView(computedValue: $parentObject.childObject.computedValue)
+            
+        }
+    }
+}
+
+struct ChildView: View {
+    @Binding var computedValue: Int
+    var body: some View {
+        Text("Computed Value: \(computedValue)")
+    }
+}
+```
+
+
 
 
 
