@@ -2,7 +2,7 @@
 
 ### Problem:
 
-An @ObservableObject in SwiftUI is supposed to publish changes to any properties marked with @Published to any SwiftUI view accessing the property, causing the view to reload and update.
+An **@ObservableObject** in **SwiftUI** is supposed to publish changes to any properties marked with **@Published** to any **SwiftUI** view accessing the property, causing the view to reload and update.
 
 When using an @ObservableObject class within another @ObservableObject class (nesting them) this results in the child object publishing updates to the parent object, however the parent object does not publish those changes to the view or up the hierarchy.
 
@@ -52,12 +52,12 @@ class ChildObject: ObservableObject {
 }
 ```
 
-When pressing the Button in the above code the view doesn't update the Text view accordingly. This can be verified by checking that the Print statement fires in the Terminal. 
+When pressing the **Button** in the above code the view doesn't update the **Text** view accordingly. This can be verified by checking that the **Print** statement fires in the **Terminal**. 
 
 
 ## Fix 1
 
-The simplest and easiest solution is to manually call the parent object's [objectWillChange](https://developer.apple.com/documentation/combine/observableobject/objectwillchange-2oa5v) publisher, such as with
+The simplest and easiest solution is to manually call the **ParentObject**'s [objectWillChange](https://developer.apple.com/documentation/combine/observableobject/objectwillchange-2oa5v) publisher, such as with
 ```parentObject.objectWillChange.send()```.
 
 ### Fix Example:
@@ -81,7 +81,7 @@ struct ContentView: View {
 
 ## Fix 2
 
-To avoid having to manually call the parent [objectWillChange](https://developer.apple.com/documentation/combine/observableobject/objectwillchange-2oa5v) publisher and risk forgetting to do so, the ChildObject can instead be converted into a Struct.
+To avoid having to manually call the parent [objectWillChange](https://developer.apple.com/documentation/combine/observableobject/objectwillchange-2oa5v) publisher and risk forgetting to do so, the **ChildObject** can instead be converted into a Struct.
 
 
 ### Fix Example:
@@ -92,4 +92,4 @@ struct ChildObject {
 }
 ```
 
-If there are numerous properties being called frequently from multiple locations then this may be a better options. The **ChildObject** loses the functionality of operating independently as an @ObservableObject, but your **ParentObject** will essentially run normally and you won't needed to add any extra code elsewhere.
+If there are numerous properties being called frequently from multiple locations then this may be a better options. The **ChildObject** loses the functionality of operating independently as an **@ObservableObject**, but your **ParentObject** will essentially run normally and you won't needed to add any extra code elsewhere.
