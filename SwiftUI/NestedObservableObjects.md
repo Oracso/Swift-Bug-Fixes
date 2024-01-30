@@ -91,3 +91,5 @@ struct ChildObject {
     var value = 0
 }
 ```
+
+If there are numerous properties being called frequently from multiple locations then this may be a better options. The **ChildObject** loses the functionality of operating independently as an @ObservableObject, but your **ParentObject** will essentially run normally and you won't needed to add any extra code elsewhere.
