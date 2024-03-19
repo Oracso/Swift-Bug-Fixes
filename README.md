@@ -1,5 +1,6 @@
 # Swift Bug Fixes
-A catalogue of common Swift bugs and my catalogue of fixes
+
+A catalogue of common Swift bugs and a record of my fixes for them.
 
 
 ### Overview:
