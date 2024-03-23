@@ -1,11 +1,12 @@
 # Swift Bug Fixes
 
-A catalogue of common Swift bugs and a record of my fixes for them.
-
-
 ### Overview:
 
-I found it hard keeping track of all the bugs I found and my different fixes for them so I decided collate them into a GitHub repository. Feel free to browse and let me know if you find any bugs inside by bug fixes or have any suggestions to add. 
+A catalogue of common Swift bugs and a record of my fixes for them.
+
+### Use Case:
+
+I found it hard keeping track of all the bugs I found and my different fixes for them so I decided collate them into a *GitHub* repository. Feel free to browse and let me know if you find any bugs inside my bug fixes or have any suggestions to add. 
 
 ### Contents:
 
