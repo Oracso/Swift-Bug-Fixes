@@ -13,7 +13,7 @@ I found it hard keeping track of all the bugs I found and my different fixes for
 #### SwiftUI
 - [Nested Observable Objects](SwiftUI/NestedObservableObjects.md)
 
-
+- [TabView View Refresh](SwiftUI/TabViewViewRefresh.md)
 
 ### Code Layout
 
