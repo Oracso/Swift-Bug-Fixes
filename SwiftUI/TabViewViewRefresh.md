@@ -48,6 +48,13 @@ One solution which may be combined with other enhanced TabView functionality, is
 ```
 
 
+### Fix Difficulties
+
+Setting one of the child views of the TabView as the ID property causes an unexpected crash when updating the data. This may be due to a local set up though, as haven't tested fully.
+
+Assigning the whole TabView with the ID causes the whole thing to reload and revert back to tab 1. 
+
+To avoid this, the id needs to be assigned to something on the actual view that needs the update. This could be done by any @State property, but seems to make sense to assign it to the TabViewManager. To separate view logic with this wider issue.
 
 
 
